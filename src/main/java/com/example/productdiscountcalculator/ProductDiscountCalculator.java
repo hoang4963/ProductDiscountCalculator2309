@@ -20,11 +20,13 @@ public class ProductDiscountCalculator extends HttpServlet {
         String description = String.copyValueOf(request.getParameter("Description").toCharArray());
 
         float discountAmount = (float) (price * percent * 0.01);
+        float discountPrice = price - discountAmount;
 
         PrintWriter writer = response.getWriter();
         writer.println("<html>");
-        writer.println("<h1>Description: " +description + "</h1>");
+        writer.println("<h2>Description: " +description + "</h2>");
         writer.println("<h2>Discount Amount: " + discountAmount + "</h2>");
+        writer.println("<h2>Discount Price: " + discountPrice + "</h2>");
     }
 
     public void destroy() {
